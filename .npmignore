@@ -1,0 +1,6 @@
+images
+*.bkp
+npm-debug.log
+node_modules
+.git
+.gitattributes

@@ -1,0 +1,84 @@
+<!--
+  Copyright 2019 OPEN-EYES S.r.l.
+
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('get-eventbrite',{
+        category: 'OpenEyes',
+        color: '#a6bbcf',
+        defaults: {
+            apikey: {value:""},
+            orgid: {value:""},
+            maxev: {value:"1"},
+            name: {value:""}    //  along with default values.
+        },
+        inputs:1,
+        outputs:1,
+        icon: "eventbrite.png",
+        label: function() {     // sets the default label contents
+            return this.name||this.topic||"get-eventbrite";
+        },
+        labelStyle: function() { // sets the class to apply to the label
+            return this.name?"node_label_italic":"";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="get-eventbrite">
+
+    <div class="form-row">
+        <label for="node-input-apikey"><i class="fa fa-key"></i> <span data-i18n="weather.label.apikey"></span></label>
+        <input type="password" id="node-input-apikey">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-orgid"></i> Organization Id</label>
+        <input type="text" id="node-input-orgid" placeholder="Organization">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-maxev"></i> Max event</label>
+        <input type="text" id="node-input-maxev" placeholder="event">
+    </div>
+
+	<div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="get-eventbrite">
+    <p>A node-red library that use eventbrite API to extract event.</p>
+
+    <h3>API key</h3>
+
+    <p>Insert <a href="https://www.eventbrite.it/platform/docs/authentication">API key</a> of your account.</p>
+
+    <h3>Organization Id</h3>
+
+    <p>Insert <a href="https://www.eventbrite.it/platform/docs">Organization id</a> of the events that you want to extract.</p>
+
+    <h3>Max event</h3>
+
+    <p>Maximum event number that you want to forward.</p>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://github.com/nemax68/node-red-contrib-geteventbrite">GitHub</a> - the nodes github repository</li>
+    </ul>
+
+</script>
